@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}
+      <title>Books</title>
+{% endblock %}
+
+
+{% block head %}
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/book_list.css' %}">
+    
+{% endblock %}
+
+
+{% block content %}
+
+
+    {% for book in book_list %}
+
+    <ul>
+        <li><a href="/"><h5>{{ book.title }}</h5></a></li>
+        <li><i>{{ book.author }}</i></li>
+        <li>{{ book.summary }}</li>
+    </ul>
+        
+
+    {% endfor %}
+
+    {% if onlybook %}
+        <p>hello</p>
+        <p>{{ onlybook }}</p>
+    
+    {% else %}
+        <p>No only book</p>
+    {% endif %}
+
+
+{% endblock %}
